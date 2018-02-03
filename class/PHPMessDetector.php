@@ -7,6 +7,8 @@
 
 namespace CodeMommy\DevelopPHP;
 
+use DOMDocument;
+
 /**
  * Class PHPMessDetector
  * @package CodeMommy\DevelopPHP;
@@ -53,12 +55,47 @@ class PHPMessDetector
     }
 
     /**
+     * Get Rule To Delete
+     * @return array
+     */
+    private static function getRuleToDelete()
+    {
+        return array(
+            'cleancode' => array(
+                'StaticAccess'
+            )
+        );
+    }
+
+    /**
+     * Remove Rule
+     */
+    private static function removeRule()
+    {
+        $ruleToDelete = self::getRuleToDelete();
+        foreach ($ruleToDelete as $fileName => $ruleName) {
+            $file = sprintf('vendor/phpmd/phpmd/src/main/resources/rulesets/%s.xml', $fileName);
+            $ruleDocument = new DOMDocument();
+            $ruleDocument->load($file);
+            $ruleSet = $ruleDocument->getElementsByTagName('rule');
+            foreach ($ruleSet as $rule) {
+                foreach ($rule->attributes as $attribute) {
+                    if ($attribute->nodeName == 'name' && in_array($attribute->nodeValue, $ruleName)) {
+                        $rule->parentNode->removeChild($rule);
+                    }
+                }
+            }
+            $ruleDocument->save($file);
+        }
+    }
+
+    /**
      * Start
      */
     public static function start()
     {
         Clean::workbench();
-        RemoveRule::start();
+        self::removeRule();
         $files = implode(',', self::getFileList());
         $rules = implode(',', self::getRuleList());
         $command = sprintf('"vendor/bin/phpmd" %s text %s', $files, $rules);
