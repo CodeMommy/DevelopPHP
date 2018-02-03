@@ -32,7 +32,7 @@ class PHPUnitBase extends TestCase
     public function __construct()
     {
         parent::__construct();
-        $this->testCasePath = sprintf('%s/../%s', __DIR__, self::TEST_CASE_PATH);
+        $this->testCasePath = self::TEST_CASE_PATH;
     }
 
     /**
