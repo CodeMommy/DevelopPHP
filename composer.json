@@ -47,13 +47,13 @@
     "require-dev": {
     },
     "scripts": {
-        "environment": "CodeMommy\\DevelopPHP\\Environment::start",
         "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",
-        "test": "CodeMommy\\DevelopPHP\\Test::start",
-        "phpmd": "CodeMommy\\DevelopPHP\\PHPMessDetector::start",
-        "phpcs": "CodeMommy\\DevelopPHP\\PHPCodeSniffer::start",
-        "phpcbf": "CodeMommy\\DevelopPHP\\PHPCodeBeautifierAndFixer::start",
+        "environment": "CodeMommy\\DevelopPHP\\Environment::start",
         "phpunit": "CodeMommy\\DevelopPHP\\PHPUnit::start",
-        "clean": "CodeMommy\\DevelopPHP\\Clean::all"
+        "phpcbf": "CodeMommy\\DevelopPHP\\PHPCodeBeautifierAndFixer::start",
+        "phpcs": "CodeMommy\\DevelopPHP\\PHPCodeSniffer::start",
+        "phpmd": "CodeMommy\\DevelopPHP\\PHPMessDetector::start",
+        "clean": "CodeMommy\\DevelopPHP\\Clean::all",
+        "test": "CodeMommy\\DevelopPHP\\Test::start"
     }
 }
