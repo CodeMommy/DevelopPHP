@@ -26,14 +26,14 @@ class PHPCodeBeautifierAndFixer
      */
     private static function getFileList()
     {
-        return array(
+        return DevelopPHP::getConfig('PHPCodeBeautifierAndFixer.File', array(
             'autoload.php',
             'interface',
             'class',
             'script',
             'test',
             'test_case'
-        );
+        ));
     }
 
     /**

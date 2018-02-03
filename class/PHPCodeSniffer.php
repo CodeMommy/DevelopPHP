@@ -26,14 +26,14 @@ class PHPCodeSniffer
      */
     private static function getFileList()
     {
-        return array(
+        return DevelopPHP::getConfig('PHPCodeSniffer.File', array(
             'autoload.php',
             'interface',
             'class',
             'script',
             'test',
             'test_case'
-        );
+        ));
     }
 
     /**

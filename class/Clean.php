@@ -28,9 +28,9 @@ class Clean
      */
     public static function workbench()
     {
-        $removeList = array(
+        $removeList = DevelopPHP::getConfig('Clean.Workbench', array(
             'workbench'
-        );
+        ));
         $result = FileSystem::remove($removeList);
         if ($result) {
             Console::printLine('Clean Workbench Finished.', 'success');

@@ -26,14 +26,14 @@ class PHPMessDetector
      */
     private static function getFileList()
     {
-        return array(
+        return DevelopPHP::getConfig('PHPMessDetector.File', array(
             'autoload.php',
             'interface',
             'class',
             'script',
             'test',
             'test_case'
-        );
+        ));
     }
 
     /**
