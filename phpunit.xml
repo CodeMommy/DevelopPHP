@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="CodeMommy DevelopPHP">
+            <directory suffix="Test.php">./test</directory>
+            <exclude>./test_case</exclude>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./interface</directory>
+            <directory suffix=".php">./class</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="./workbench/code_coverage_report/clover/clover.xml"/>
+        <log type="coverage-html" target="./workbench/code_coverage_report/html"/>
+    </logging>
+</phpunit>
