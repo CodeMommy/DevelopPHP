@@ -28,7 +28,11 @@ class DevelopPHP
      */
     public static function getConfig($key = '', $default = null)
     {
-        $content = file_get_contents('.develop.json');
+        $file = '.develop.json';
+        if (!is_file($file)) {
+            return $default;
+        }
+        $content = file_get_contents($file);
         $json = json_decode($content, true);
         return isset($json[$key]) ? $json[$key] : $default;
     }
