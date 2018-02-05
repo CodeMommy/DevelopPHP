@@ -65,19 +65,19 @@ class PHPMessDetector implements ScriptInterface
     {
         return array(
             'cleancode' => array(
-                'StaticAccess'
+                'StaticAccess' // 不允许静态方法的访问
             ),
             'codesize' => array(
-                'TooManyPublicMethods'
+                'TooManyPublicMethods' // 一个类Public方法不能超过10个
             ),
             'controversial' => array(
-                'Superglobals'
+                'Superglobals' // 不能访问类似$_GET等全局变量
             ),
             'design' => array(
-                'DepthOfInheritance'
+                'CouplingBetweenObjects' // 一个类引用对象不能超过13个
             ),
             'naming' => array(
-                'ShortMethodName'
+                'ShortMethodName' // 方法名不能少于3个字母
             )
         );
     }
