@@ -1,2 +1,38 @@
 {
+    "PHPCodeBeautifierAndFixer": {
+        "file": [
+            "autoload.php",
+            "interface",
+            "class",
+            "command",
+            "library",
+            "script",
+            "test",
+            "test_case"
+        ]
+    },
+    "PHPCodeSniffer": {
+        "file": [
+            "autoload.php",
+            "interface",
+            "class",
+            "command",
+            "library",
+            "script",
+            "test",
+            "test_case"
+        ]
+    },
+    "PHPMessDetector": {
+        "file": [
+            "autoload.php",
+            "interface",
+            "class",
+            "command",
+            "library",
+            "script",
+            "test",
+            "test_case"
+        ]
+    }
 }

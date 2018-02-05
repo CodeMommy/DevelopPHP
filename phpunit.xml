@@ -10,6 +10,8 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./interface</directory>
             <directory suffix=".php">./class</directory>
+            <directory suffix=".php">./library</directory>
+            <directory suffix=".php">./command</directory>
         </whitelist>
     </filter>
     <logging>

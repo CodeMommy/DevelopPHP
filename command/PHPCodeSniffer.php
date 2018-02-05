@@ -7,14 +7,16 @@
 
 namespace CodeMommy\DevelopPHP;
 
+use CodeMommy\TaskPHP\Console;
+
 /**
- * Class PHPCodeBeautifierAndFixer
+ * Class PHPCodeSniffer
  * @package CodeMommy\DevelopPHP;
  */
-class PHPCodeBeautifierAndFixer
+class PHPCodeSniffer implements ScriptInterface
 {
     /**
-     * PHPCodeBeautifierAndFixer constructor.
+     * PHPCodeSniffer constructor.
      */
     public function __construct()
     {
@@ -26,10 +28,11 @@ class PHPCodeBeautifierAndFixer
      */
     private static function getFileList()
     {
-        return DevelopPHP::getConfig('PHPCodeBeautifierAndFixer.File', array(
+        return Config::get('PHPCodeSniffer.File', array(
             'autoload.php',
             'interface',
             'class',
+            'library',
             'script',
             'test',
             'test_case'
@@ -42,8 +45,15 @@ class PHPCodeBeautifierAndFixer
     public static function start()
     {
         Clean::workbench();
+        Console::printLine('Start PHP Code Sniffer', 'information');
         $files = implode(' ', self::getFileList());
-        $command = sprintf('"vendor/bin/phpcbf" %s --standard=PSR2', $files);
-        system($command);
+        $command = sprintf('"vendor/bin/phpcs" %s --standard=PSR2', $files);
+        system($command, $returnCode);
+        if(intval($returnCode) == 0){
+            Console::printLine('PHP Code Sniffer Finished', 'success');
+            return;
+        }
+        Console::printLine('PHP Code Sniffer Error', 'error');
+        return;
     }
 }

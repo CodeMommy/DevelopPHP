@@ -24,16 +24,20 @@
     ],
     "autoload": {
         "psr-4": {
+            "CodeMommy\\DevelopPHP\\Library\\": "library",
             "CodeMommy\\DevelopPHP\\": [
+                "command",
                 "interface",
-                "class"
+                "class",
+                "file"
             ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeMommy\\DevelopPHP\\Test\\": "test",
-            "CodeMommy\\DevelopPHP\\Script\\": "script"
+            "CodeMommy\\Test\\": "test",
+            "CodeMommy\\Script\\": "script",
+            "CodeMommy\\TestCase\\": "test_case"
         }
     },
     "require": {

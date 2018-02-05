@@ -5,8 +5,6 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-declare(strict_types=1);
-
 namespace CodeMommy\DevelopPHP;
 
 use Exception;
@@ -16,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  * Class PHPUnitBase
  * @package CodeMommy\DevelopPHP
  */
-class PHPUnitBase extends TestCase
+abstract class PHPUnitBase extends TestCase
 {
     const TEST_CASE_PATH = 'test_case';
 
@@ -48,14 +46,5 @@ class PHPUnitBase extends TestCase
         $path = trim($path, '/\\');
         $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
         return sprintf('%s%s%s', $this->testCasePath, DIRECTORY_SEPARATOR, $path);
-    }
-
-    /**
-     * Test
-     * @throws Exception
-     */
-    public function test()
-    {
-        $this->assertTrue(true);
     }
 }

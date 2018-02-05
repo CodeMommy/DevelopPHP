@@ -7,11 +7,13 @@
 
 namespace CodeMommy\DevelopPHP;
 
+use CodeMommy\TaskPHP\Console;
+
 /**
  * Class UpdateProject
  * @package CodeMommy\DevelopPHP;
  */
-class UpdateProject
+class UpdateProject implements ScriptInterface
 {
     /**
      * UpdateProject constructor.
@@ -25,8 +27,11 @@ class UpdateProject
      */
     public static function start()
     {
+        Console::printLine('Git Pull', 'information');
         system('git pull');
+        Console::printLine('Update Composer', 'information');
         system('composer self-update');
+        Console::printLine('Update Vendor', 'information');
         system('composer update');
     }
 }
