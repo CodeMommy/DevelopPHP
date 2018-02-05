@@ -1,6 +1,6 @@
 {
     "PHPCodeBeautifierAndFixer": {
-        "file": [
+        "File": [
             "autoload.php",
             "interface",
             "class",
@@ -12,7 +12,7 @@
         ]
     },
     "PHPCodeSniffer": {
-        "file": [
+        "File": [
             "autoload.php",
             "interface",
             "class",
@@ -24,7 +24,7 @@
         ]
     },
     "PHPMessDetector": {
-        "file": [
+        "File": [
             "autoload.php",
             "interface",
             "class",

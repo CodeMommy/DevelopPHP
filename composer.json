@@ -26,9 +26,9 @@
         "psr-4": {
             "CodeMommy\\DevelopPHP\\Library\\": "library",
             "CodeMommy\\DevelopPHP\\": [
-                "command",
                 "interface",
-                "class"
+                "class",
+                "command"
             ]
         }
     },

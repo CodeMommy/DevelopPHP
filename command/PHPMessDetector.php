@@ -66,6 +66,9 @@ class PHPMessDetector implements ScriptInterface
         return array(
             'cleancode' => array(
                 'StaticAccess'
+            ),
+            'controversial'=>array(
+                'Superglobals'
             )
         );
     }
