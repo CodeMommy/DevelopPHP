@@ -73,6 +73,9 @@ class PHPMessDetector implements ScriptInterface
             'controversial' => array(
                 'Superglobals'
             ),
+            'design' => array(
+                'DepthOfInheritance'
+            ),
             'naming' => array(
                 'ShortMethodName'
             )
