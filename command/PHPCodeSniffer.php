@@ -50,7 +50,7 @@ class PHPCodeSniffer implements ScriptInterface
         $files = implode(' ', self::getFileList());
         $command = sprintf('"vendor/bin/phpcs" %s --standard=PSR2', $files);
         system($command, $returnCode);
-        if(intval($returnCode) == 0){
+        if (intval($returnCode) == 0) {
             Console::printLine('PHP Code Sniffer Finished', 'success');
             return;
         }

@@ -109,7 +109,7 @@ class PHPMessDetector implements ScriptInterface
         $rules = implode(',', self::getRuleList());
         $command = sprintf('"vendor/bin/phpmd" %s text %s', $files, $rules);
         system($command, $returnCode);
-        if(intval($returnCode) == 0){
+        if (intval($returnCode) == 0) {
             Console::printLine('PHP Mess Detector Finished', 'success');
             return;
         }

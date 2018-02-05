@@ -50,7 +50,7 @@ class PHPCodeBeautifierAndFixer implements ScriptInterface
         $files = implode(' ', self::getFileList());
         $command = sprintf('"vendor/bin/phpcbf" %s --standard=PSR2', $files);
         system($command, $returnCode);
-        if(intval($returnCode) == 0){
+        if (intval($returnCode) == 0) {
             Console::printLine('PHP Code Beautifier And Fixer Finished', 'success');
             return;
         }

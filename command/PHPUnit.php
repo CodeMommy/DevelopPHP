@@ -108,7 +108,7 @@ class PHPUnit implements ScriptInterface
             $coverageFileClover
         );
         system($command, $returnCode);
-        if(intval($returnCode) != 0){
+        if (intval($returnCode) != 0) {
             Console::printLine('PHPUnit Error', 'error');
             return;
         }
