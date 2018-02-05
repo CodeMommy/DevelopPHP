@@ -9,6 +9,7 @@ namespace CodeMommy\DevelopPHP;
 
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
+use CodeMommy\DevelopPHP\Library\Config;
 
 /**
  * Class Clean

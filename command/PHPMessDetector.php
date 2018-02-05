@@ -9,6 +9,7 @@ namespace CodeMommy\DevelopPHP;
 
 use DOMDocument;
 use CodeMommy\TaskPHP\Console;
+use CodeMommy\DevelopPHP\Library\Config;
 
 /**
  * Class PHPMessDetector

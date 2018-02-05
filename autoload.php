@@ -7,13 +7,13 @@
 
 require_once('library/Autoload.php');
 
-use CodeMommy\DevelopPHP\Library;
+use CodeMommy\DevelopPHP\Library\Autoload;
 
 $autoloaDirectory = array(
+    'library' => 'CodeMommy\\DevelopPHP\\Library',
     'class' => 'CodeMommy\\DevelopPHP',
     'interface' => 'CodeMommy\\DevelopPHP',
-    'library' => 'CodeMommy\\DevelopPHP',
     'command' => 'CodeMommy\\DevelopPHP'
 );
 
-Library\Autoload::directory($autoloaDirectory);
+Autoload::directory($autoloaDirectory);

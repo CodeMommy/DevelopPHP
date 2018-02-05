@@ -28,16 +28,14 @@
             "CodeMommy\\DevelopPHP\\": [
                 "command",
                 "interface",
-                "class",
-                "file"
+                "class"
             ]
         }
     },
     "autoload-dev": {
         "psr-4": {
             "CodeMommy\\Test\\": "test",
-            "CodeMommy\\Script\\": "script",
-            "CodeMommy\\TestCase\\": "test_case"
+            "CodeMommy\\Script\\": "script"
         }
     },
     "require": {

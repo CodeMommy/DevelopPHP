@@ -7,7 +7,6 @@
 
 namespace CodeMommy\DevelopPHP;
 
-use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**

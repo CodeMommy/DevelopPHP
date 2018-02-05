@@ -8,6 +8,7 @@
 namespace CodeMommy\DevelopPHP;
 
 use CodeMommy\TaskPHP\Console;
+use CodeMommy\DevelopPHP\Library\Config;
 
 /**
  * Class PHPCodeSniffer
