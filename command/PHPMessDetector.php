@@ -67,8 +67,14 @@ class PHPMessDetector implements ScriptInterface
             'cleancode' => array(
                 'StaticAccess'
             ),
-            'controversial'=>array(
+            'codesize' => array(
+                'TooManyPublicMethods'
+            ),
+            'controversial' => array(
                 'Superglobals'
+            ),
+            'naming' => array(
+                'ShortMethodName'
             )
         );
     }
