@@ -1,4 +1,16 @@
 {
+    "PHPDepend": {
+        "File": [
+            "autoload.php",
+            "interface",
+            "class",
+            "command",
+            "library",
+            "script",
+            "test",
+            "test_case"
+        ]
+    },
     "PHPCodeBeautifierAndFixer": {
         "File": [
             "autoload.php",
