@@ -64,20 +64,20 @@ class PHPMessDetector implements ScriptInterface
     private static function getRuleToDelete()
     {
         return array(
-            'cleancode' => array(
-                'StaticAccess' // 不允许静态方法的访问
-            ),
-            'codesize' => array(
-                'TooManyPublicMethods' // 一个类Public方法不能超过10个
-            ),
+//            'codesize' => array(
+//                'TooManyPublicMethods' // 一个类Public方法不能超过10个
+//            ),
+//            'design' => array(
+//                'CouplingBetweenObjects' // 一个类引用对象不能超过13个
+//            ),
+//            'naming' => array(
+//                'ShortMethodName' // 方法名不能少于3个字母
+//            ),
             'controversial' => array(
                 'Superglobals' // 不能访问类似$_GET等全局变量
             ),
-            'design' => array(
-                'CouplingBetweenObjects' // 一个类引用对象不能超过13个
-            ),
-            'naming' => array(
-                'ShortMethodName' // 方法名不能少于3个字母
+            'cleancode' => array(
+                'StaticAccess' // 不允许静态方法的访问
             )
         );
     }
