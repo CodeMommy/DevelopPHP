@@ -32,6 +32,7 @@ class Test implements ScriptInterface
         PHPCodeBeautifierAndFixer::start();
         PHPCodeSniffer::start();
         PHPMessDetector::start();
+        PHPDepend::start();
         Console::printLine('Test Finished', 'success');
     }
 }

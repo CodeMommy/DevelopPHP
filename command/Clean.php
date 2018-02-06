@@ -51,12 +51,21 @@ class Clean implements ScriptInterface
     }
 
     /**
+     * PHP Depend
+     */
+    public static function phpDepend()
+    {
+        PHPDepend::clean();
+    }
+
+    /**
      * All
      */
     public static function all()
     {
         self::workbench();
         self::phpUnit();
+        self::phpDepend();
     }
 
     /**
