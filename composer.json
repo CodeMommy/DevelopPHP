@@ -24,22 +24,25 @@
     ],
     "autoload": {
         "psr-4": {
+            "CodeMommy\\DevelopPHP\\Library\\": "library",
             "CodeMommy\\DevelopPHP\\": [
                 "interface",
-                "class"
+                "class",
+                "command"
             ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeMommy\\DevelopPHP\\Test\\": "test",
-            "CodeMommy\\DevelopPHP\\Script\\": "script"
+            "CodeMommy\\Test\\": "test",
+            "CodeMommy\\Script\\": "script"
         }
     },
     "require": {
         "php": ">=5.3.0",
         "phpunit/phpunit": "*",
         "phpmd/phpmd": "*",
+        "pdepend/pdepend": "*",
         "squizlabs/php_codesniffer": "*",
         "satooshi/php-coveralls": "*",
         "CodeMommy/TaskPHP": "*"
@@ -49,6 +52,7 @@
     "scripts": {
         "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",
         "environment": "CodeMommy\\DevelopPHP\\Environment::start",
+        "pdepend": "CodeMommy\\DevelopPHP\\PHPDepend::start",
         "phpunit": "CodeMommy\\DevelopPHP\\PHPUnit::start",
         "phpcbf": "CodeMommy\\DevelopPHP\\PHPCodeBeautifierAndFixer::start",
         "phpcs": "CodeMommy\\DevelopPHP\\PHPCodeSniffer::start",

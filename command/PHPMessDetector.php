@@ -8,12 +8,14 @@
 namespace CodeMommy\DevelopPHP;
 
 use DOMDocument;
+use CodeMommy\TaskPHP\Console;
+use CodeMommy\DevelopPHP\Library\Config;
 
 /**
  * Class PHPMessDetector
  * @package CodeMommy\DevelopPHP;
  */
-class PHPMessDetector
+class PHPMessDetector implements ScriptInterface
 {
     /**
      * PHPMessDetector constructor.
@@ -28,10 +30,11 @@ class PHPMessDetector
      */
     private static function getFileList()
     {
-        return DevelopPHP::getConfig('PHPMessDetector.File', array(
+        return Config::get('PHPMessDetector.File', array(
             'autoload.php',
             'interface',
             'class',
+            'library',
             'script',
             'test',
             'test_case'
@@ -61,8 +64,20 @@ class PHPMessDetector
     private static function getRuleToDelete()
     {
         return array(
+//            'codesize' => array(
+//                'TooManyPublicMethods' // 一个类Public方法不能超过10个
+//            ),
+//            'design' => array(
+//                'CouplingBetweenObjects' // 一个类引用对象不能超过13个
+//            ),
+//            'naming' => array(
+//                'ShortMethodName' // 方法名不能少于3个字母
+//            ),
+            'controversial' => array(
+                'Superglobals' // 不能访问类似$_GET等全局变量
+            ),
             'cleancode' => array(
-                'StaticAccess'
+                'StaticAccess' // 不允许静态方法的访问
             )
         );
     }
@@ -72,6 +87,7 @@ class PHPMessDetector
      */
     private static function removeRule()
     {
+        Console::printLine('Start Remove Rule', 'information');
         $ruleToDelete = self::getRuleToDelete();
         foreach ($ruleToDelete as $fileName => $ruleName) {
             $file = sprintf('vendor/phpmd/phpmd/src/main/resources/rulesets/%s.xml', $fileName);
@@ -87,6 +103,7 @@ class PHPMessDetector
             }
             $ruleDocument->save($file);
         }
+        Console::printLine('Remove Rule Finished', 'success');
     }
 
     /**
@@ -96,9 +113,16 @@ class PHPMessDetector
     {
         Clean::workbench();
         self::removeRule();
+        Console::printLine('Start PHP Mess Detector', 'information');
         $files = implode(',', self::getFileList());
         $rules = implode(',', self::getRuleList());
         $command = sprintf('"vendor/bin/phpmd" %s text %s', $files, $rules);
-        system($command);
+        system($command, $returnCode);
+        if (intval($returnCode) == 0) {
+            Console::printLine('PHP Mess Detector Finished', 'success');
+            return;
+        }
+        Console::printLine('PHP Mess Detector Error', 'error');
+        return;
     }
 }

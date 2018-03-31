@@ -9,12 +9,13 @@ namespace CodeMommy\DevelopPHP;
 
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
+use CodeMommy\DevelopPHP\Library\Config;
 
 /**
  * Class Clean
  * @package CodeMommy\DevelopPHP;
  */
-class Clean
+class Clean implements ScriptInterface
 {
     /**
      * Clean constructor.
@@ -28,15 +29,16 @@ class Clean
      */
     public static function workbench()
     {
-        $removeList = DevelopPHP::getConfig('Clean.Workbench', array(
+        Console::printLine('Start Clean Workbench', 'information');
+        $removeList = Config::get('Clean.Workbench', array(
             'workbench'
         ));
         $result = FileSystem::remove($removeList);
         if ($result) {
-            Console::printLine('Clean Workbench Finished.', 'success');
+            Console::printLine('Clean Workbench Finished', 'success');
             return;
         }
-        Console::printLine('Clean Workbench Error.', 'error');
+        Console::printLine('Clean Workbench Error', 'error');
         return;
     }
 
@@ -49,11 +51,28 @@ class Clean
     }
 
     /**
+     * PHP Depend
+     */
+    public static function phpDepend()
+    {
+        PHPDepend::clean();
+    }
+
+    /**
      * All
      */
     public static function all()
     {
         self::workbench();
         self::phpUnit();
+        self::phpDepend();
+    }
+
+    /**
+     * Start
+     */
+    public static function start()
+    {
+        self::all();
     }
 }

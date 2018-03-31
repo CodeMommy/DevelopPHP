@@ -3,13 +3,17 @@
     <testsuites>
         <testsuite name="CodeMommy DevelopPHP">
             <directory suffix="Test.php">./test</directory>
-            <exclude>./test_case</exclude>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./library</directory>
             <directory suffix=".php">./interface</directory>
             <directory suffix=".php">./class</directory>
+            <directory suffix=".php">./command</directory>
+            <exclude>
+                <file>./library/Autoload.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>

@@ -14,7 +14,7 @@ use CodeMommy\TaskPHP\FileSystem;
  * Class PHPUnit
  * @package CodeMommy\DevelopPHP;
  */
-class PHPUnit
+class PHPUnit implements ScriptInterface
 {
     const BASE_PATH_NAME = 'CodeMommy';
 
@@ -73,15 +73,16 @@ class PHPUnit
      */
     public static function clean()
     {
+        Console::printLine('Start Clean PHPUnit Report', 'information');
         $removeList = array(
             self::getBasePath()
         );
         $result = FileSystem::remove($removeList);
         if ($result) {
-            Console::printLine('Clean PHPUnit Report Finished.', 'success');
+            Console::printLine('Clean PHPUnit Report Finished', 'success');
             return true;
         }
-        Console::printLine('Clean PHPUnit Report Error.', 'error');
+        Console::printLine('Clean PHPUnit Report Error', 'error');
         return false;
     }
 
@@ -91,6 +92,7 @@ class PHPUnit
     public static function start()
     {
         Clean::workbench();
+        Console::printLine('Start PHPUnit', 'information');
         $coveragePath = sprintf('%s%sCodeCoverageReport', self::getWorkbenchPath(), DIRECTORY_SEPARATOR);
         $coveragePathHTML = sprintf('%s%sHTML', $coveragePath, DIRECTORY_SEPARATOR);
         $coverageFileHTML = sprintf('%s%sindex.html', $coveragePathHTML, DIRECTORY_SEPARATOR);
@@ -105,11 +107,17 @@ class PHPUnit
             $coveragePathHTML,
             $coverageFileClover
         );
-        system($command);
+        system($command, $returnCode);
+        if (intval($returnCode) != 0) {
+            Console::printLine('PHPUnit Error', 'error');
+            return;
+        }
+        Console::printLine('PHPUnit Finished', 'success');
         if (is_file($coverageFileHTML)) {
+            Console::printLine('Open PHPUnit Report', 'success');
             system(sprintf('start %s', $coverageFileHTML));
             return;
         }
-        Console::printLine('No PHPUnit Report.', 'information');
+        Console::printLine('No PHPUnit Report', 'information');
     }
 }

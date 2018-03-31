@@ -7,11 +7,13 @@
 
 namespace CodeMommy\DevelopPHP;
 
+use CodeMommy\TaskPHP\Console;
+
 /**
  * Class Test
  * @package CodeMommy\DevelopPHP;
  */
-class Test
+class Test implements ScriptInterface
 {
     /**
      * Test constructor.
@@ -25,9 +27,12 @@ class Test
      */
     public static function start()
     {
+        Console::printLine('Start Test', 'information');
         PHPUnit::start();
         PHPCodeBeautifierAndFixer::start();
         PHPCodeSniffer::start();
         PHPMessDetector::start();
+        PHPDepend::start();
+        Console::printLine('Test Finished', 'success');
     }
 }
