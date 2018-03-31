@@ -5,12 +5,12 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-$autoloaDirectory = array(
+$autoloadDirectory = array(
     'class' => 'CodeMommy\\DevelopPHP',
     'interface' => 'CodeMommy\\DevelopPHP'
 );
 
-foreach ($autoloaDirectory as $directory => $namespaceRoot) {
+foreach ($autoloadDirectory as $directory => $namespaceRoot) {
     $directory = sprintf('%s%s%s', __DIR__, DIRECTORY_SEPARATOR, $directory);
     spl_autoload_register(function ($className) use ($directory, $namespaceRoot) {
         $directory = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $directory);
