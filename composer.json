@@ -44,8 +44,9 @@
         "phpmd/phpmd": "*",
         "pdepend/pdepend": "*",
         "squizlabs/php_codesniffer": "*",
-        "satooshi/php-coveralls": "*",
-        "CodeMommy/TaskPHP": "*"
+        "php-coveralls/php-coveralls": "*",
+        "CodeMommy/TaskPHP": "*",
+        "CodeMommy/DebugPHP": "*"
     },
     "require-dev": {
     },
